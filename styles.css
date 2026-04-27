@@ -1,3 +1,81 @@
+/* ── CERTIFICATIONS ───────────────────────── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.cert-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: default;
+}
+
+.cert-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-3px);
+}
+
+.cert-img-wrap {
+  width: 100%;
+  height: 180px;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cert-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cert-img-placeholder {
+  font-size: 48px;
+  opacity: 0.4;
+}
+
+.cert-body {
+  padding: 1.25rem 1.5rem;
+}
+
+.cert-name {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.cert-issuer {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.cert-year-badge {
+  display: inline-block;
+  background: rgba(37,99,235,0.12);
+  color: var(--accent2);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+.cert-desc {
+  font-size: 13px;
+  color: var(--muted2);
+  line-height: 1.65;
+}
+
 /* ============================================
    RAILEY BALDE — Portfolio Stylesheet
    ============================================ */
@@ -617,47 +695,6 @@ nav {
   font-size: 11px;
   color: var(--muted);
 }
-
-/* ── CERTIFICATIONS ───────────────────────── */
-.cert-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.cert-item {
-  background: var(--bg);
-  padding: 1.5rem 1.75rem;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  transition: background 0.2s;
-  cursor: default;
-}
-
-.cert-item:hover { background: var(--bg2); }
-
-.cert-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 9px;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  font-size: 17px;
-  flex-shrink: 0;
-}
-
-.cert-info   { flex: 1; }
-.cert-name   { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
-.cert-issuer { font-size: 12px; color: var(--muted); }
-.cert-year   { font-size: 12px; color: var(--muted); font-weight: 500; }
 
 /* ── ABOUT ME ─────────────────────────────── */
 .about-layout {
