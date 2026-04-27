@@ -167,12 +167,58 @@ function openEdit(type) {
         <input id="e-ptech" placeholder="Technologies (comma separated)">
       `,
     },
+
+    /* ── CERT MODAL — image upload + URL + description ── */
     cert: {
       label: 'Add a certification',
       html: () => `
         <input id="e-cname"   placeholder="Certification name">
         <input id="e-cissuer" placeholder="Issuing organization">
-        <input id="e-cyear"   placeholder="Year">
+        <input id="e-cyear"   placeholder="Year (e.g. 2024)">
+
+        <div style="margin: 4px 0 6px;">
+          <label style="font-size:11px;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;font-weight:600;display:block;margin-bottom:6px;">
+            Certificate Image
+          </label>
+
+          <!-- Preview box -->
+          <div id="cert-preview-box" style="
+            width:100%;height:140px;background:var(--bg3);
+            border:1px solid var(--border);border-radius:7px;
+            display:flex;align-items:center;justify-content:center;
+            overflow:hidden;margin-bottom:8px;font-size:13px;color:var(--muted);
+          ">
+            <span id="cert-preview-placeholder">No image yet</span>
+            <img id="cert-preview-img" src="" alt="preview"
+              style="display:none;width:100%;height:100%;object-fit:cover;" />
+          </div>
+
+          <!-- File upload -->
+          <label style="
+            display:inline-flex;align-items:center;gap:8px;
+            background:var(--bg3);border:1px solid var(--border2);
+            color:#ccc;border-radius:7px;padding:8px 14px;
+            font-size:12px;font-weight:500;cursor:pointer;
+            margin-bottom:8px;width:100%;justify-content:center;
+          ">
+            📁 Upload image from computer
+            <input type="file" accept="image/*" id="e-cfile"
+              style="display:none;" onchange="previewCertFile(this)">
+          </label>
+
+          <!-- OR divider -->
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <div style="flex:1;height:1px;background:var(--border);"></div>
+            <span style="font-size:11px;color:var(--muted);">or paste URL</span>
+            <div style="flex:1;height:1px;background:var(--border);"></div>
+          </div>
+
+          <input id="e-cimg" placeholder="https://example.com/certificate.jpg"
+            oninput="previewCertUrl(this.value)">
+        </div>
+
+        <textarea id="e-cdesc" rows="3"
+          placeholder="Describe what this certification covers and why it's relevant…"></textarea>
       `,
     },
   };
@@ -183,6 +229,42 @@ function openEdit(type) {
   title.textContent = tpl.label;
   body.innerHTML    = tpl.html();
   document.getElementById('modal').classList.add('show');
+}
+
+/* ── CERT IMAGE PREVIEW HELPERS ───────────── */
+function previewCertUrl(url) {
+  const img         = document.getElementById('cert-preview-img');
+  const placeholder = document.getElementById('cert-preview-placeholder');
+  // Clear file input so URL takes priority
+  const fileInput   = document.getElementById('e-cfile');
+  if (fileInput) fileInput.value = '';
+
+  if (url) {
+    img.src             = url;
+    img.style.display   = 'block';
+    placeholder.style.display = 'none';
+    img.onerror = () => {
+      img.style.display         = 'none';
+      placeholder.style.display = 'block';
+      placeholder.textContent   = 'Could not load image';
+    };
+  } else {
+    img.style.display         = 'none';
+    placeholder.style.display = 'block';
+    placeholder.textContent   = 'No image yet';
+  }
+}
+
+function previewCertFile(input) {
+  if (!input.files || !input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    // Store the data URL in the URL input so saveModal can read it
+    const urlInput          = document.getElementById('e-cimg');
+    urlInput.value          = e.target.result;
+    previewCertUrl(e.target.result);
+  };
+  reader.readAsDataURL(input.files[0]);
 }
 
 function closeModal(e) {
@@ -237,19 +319,32 @@ function saveModal() {
     document.getElementById('proj-grid').appendChild(el);
 
   } else if (type === 'cert') {
-    const n = document.getElementById('e-cname').value;
+    const n = document.getElementById('e-cname').value.trim();
     if (!n) return;
-    const el = document.createElement('div');
-    el.className = 'cert-item';
-    el.innerHTML = `
-      <div class="cert-icon">🏅</div>
-      <div class="cert-info">
-        <div class="cert-name">${n}</div>
-        <div class="cert-issuer">${document.getElementById('e-cissuer').value}</div>
+
+    const imgSrc = document.getElementById('e-cimg').value.trim();
+    const issuer = document.getElementById('e-cissuer').value.trim();
+    const year   = document.getElementById('e-cyear').value.trim();
+    const desc   = document.getElementById('e-cdesc').value.trim();
+
+    const card = document.createElement('div');
+    card.className = 'cert-card';
+    card.innerHTML = `
+      <div class="cert-img-wrap">
+        ${imgSrc
+          ? `<img src="${imgSrc}" alt="${n}"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />`
+          : ''}
+        <div class="cert-img-placeholder" style="${imgSrc ? 'display:none' : 'display:flex'}">🏅</div>
       </div>
-      <div class="cert-year">${document.getElementById('e-cyear').value}</div>
+      <div class="cert-body">
+        <div class="cert-name">${n}</div>
+        <div class="cert-issuer">${issuer}</div>
+        ${year ? `<div class="cert-year-badge">${year}</div>` : ''}
+        ${desc ? `<div class="cert-desc">${desc}</div>` : ''}
+      </div>
     `;
-    document.getElementById('cert-list').appendChild(el);
+    document.getElementById('cert-grid').appendChild(card);
   }
 
   document.getElementById('modal').classList.remove('show');

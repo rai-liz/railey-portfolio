@@ -25,7 +25,7 @@
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#certs">Certifications</a>
-<a href="#about">About Me</a>
+      <a href="#about">About Me</a>
     </div>
     <div class="nav-contact-wrap">
       <button class="nav-contact-btn">Contact</button>
@@ -207,23 +207,44 @@
   <section id="certs" class="section">
     <div class="section-eyebrow reveal">Credentials</div>
     <div class="section-title reveal reveal-delay-1">Certifications</div>
-    <div class="cert-list reveal reveal-delay-2" id="cert-list">
-      <div class="cert-item">
-        <div class="cert-icon">🎓</div>
-        <div class="cert-info">
-          <div class="cert-name">Certification placeholder 1</div>
-          <div class="cert-issuer">Issuing organization</div>
+    <div class="cert-grid reveal reveal-delay-2" id="cert-grid">
+
+      <!-- Cert Card 1 — replace src with your image path or URL -->
+      <div class="cert-card">
+        <div class="cert-img-wrap">
+          <img src="" alt="Certification image"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+               id="cert-img-1" />
+          <div class="cert-img-placeholder" style="display:none;">🎓</div>
         </div>
-        <div class="cert-year">2024</div>
-      </div>
-      <div class="cert-item">
-        <div class="cert-icon">🏅</div>
-        <div class="cert-info">
-          <div class="cert-name">Certification placeholder 2</div>
-          <div class="cert-issuer">Issuing organization</div>
+        <div class="cert-body">
+          <div class="cert-name">Certification Name 1</div>
+          <div class="cert-issuer">Issuing Organization</div>
+          <div class="cert-year-badge">2024</div>
+          <div class="cert-desc">
+            Describe what this certification covers, the skills validated, and why it's relevant to your work as a developer.
+          </div>
         </div>
-        <div class="cert-year">2023</div>
       </div>
+
+      <!-- Cert Card 2 -->
+      <div class="cert-card">
+        <div class="cert-img-wrap">
+          <img src="" alt="Certification image"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+               id="cert-img-2" />
+          <div class="cert-img-placeholder" style="display:none;">🏅</div>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Certification Name 2</div>
+          <div class="cert-issuer">Issuing Organization</div>
+          <div class="cert-year-badge">2023</div>
+          <div class="cert-desc">
+            Describe what this certification covers, the skills validated, and why it's relevant to your work as a developer.
+          </div>
+        </div>
+      </div>
+
     </div>
     <button class="add-btn" onclick="openEdit('cert')">+ Add certification</button>
   </section>
