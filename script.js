@@ -28,7 +28,6 @@ const SKILLS = [
   { name: 'GitHub',             cat: 'tools'     },
   { name: 'Vercel',             cat: 'tools'     },
   { name: 'VS Code',            cat: 'tools'     },
-
   // Soft Skills
   { name: 'Adaptability',       cat: 'soft'      },
   { name: 'Collaboration',      cat: 'soft'      },
@@ -52,16 +51,16 @@ function initCursor() {
 
   document.querySelectorAll('a, button').forEach(el => {
     el.addEventListener('mouseenter', () => {
-      cursor.style.transform    = 'translate(-50%,-50%) scale(2)';
-      cursor.style.background   = '#2563eb';
-      ring.style.transform      = 'translate(-50%,-50%) scale(1.5)';
-      ring.style.borderColor    = 'rgba(37,99,235,0.5)';
+      cursor.style.transform  = 'translate(-50%,-50%) scale(2)';
+      cursor.style.background = '#2563eb';
+      ring.style.transform    = 'translate(-50%,-50%) scale(1.5)';
+      ring.style.borderColor  = 'rgba(37,99,235,0.5)';
     });
     el.addEventListener('mouseleave', () => {
-      cursor.style.transform    = 'translate(-50%,-50%) scale(1)';
-      cursor.style.background   = '#fff';
-      ring.style.transform      = 'translate(-50%,-50%) scale(1)';
-      ring.style.borderColor    = 'rgba(255,255,255,0.25)';
+      cursor.style.transform  = 'translate(-50%,-50%) scale(1)';
+      cursor.style.background = '#fff';
+      ring.style.transform    = 'translate(-50%,-50%) scale(1)';
+      ring.style.borderColor  = 'rgba(255,255,255,0.25)';
     });
   });
 }
@@ -116,9 +115,21 @@ function showToast(msg) {
 
 /* ── DOWNLOAD RESUME ──────────────────────── */
 function downloadResume() {
-  // Replace 'resume.pdf' with your actual resume file once ready
   // window.open('resume.pdf');
   showToast('Resume coming soon! 🚀');
+}
+
+/* ── DELETE HELPERS ───────────────────────── */
+
+/* Delete a .proj-card — also fixes the grid border gap */
+function deleteCard(btn, gridId) {
+  const card = btn.closest('.proj-card, .cert-card');
+  if (!card) return;
+  card.style.transition = 'opacity 0.25s, transform 0.25s';
+  card.style.opacity    = '0';
+  card.style.transform  = 'scale(0.95)';
+  setTimeout(() => card.remove(), 260);
+  showToast('Removed ✓');
 }
 
 /* ── MODAL ────────────────────────────────── */
@@ -151,7 +162,6 @@ function openEdit(type) {
           <option value="framework">Framework</option>
           <option value="database">Database</option>
           <option value="tools">Tools</option>
-          <option value="ai">AI Tools</option>
           <option value="soft">Soft Skills</option>
         </select>
       `,
@@ -166,7 +176,7 @@ function openEdit(type) {
       `,
     },
 
-    /* ── CERT MODAL — image upload + URL + description ── */
+    /* ── CERT MODAL ── */
     cert: {
       label: 'Add a certification',
       html: () => `
@@ -174,12 +184,11 @@ function openEdit(type) {
         <input id="e-cissuer" placeholder="Issuing organization">
         <input id="e-cyear"   placeholder="Year (e.g. 2024)">
 
-        <div style="margin: 4px 0 6px;">
+        <div style="margin:4px 0 6px;">
           <label style="font-size:11px;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;font-weight:600;display:block;margin-bottom:6px;">
             Certificate Image
           </label>
 
-          <!-- Preview box -->
           <div id="cert-preview-box" style="
             width:100%;height:140px;background:var(--bg3);
             border:1px solid var(--border);border-radius:7px;
@@ -191,7 +200,6 @@ function openEdit(type) {
               style="display:none;width:100%;height:100%;object-fit:cover;" />
           </div>
 
-          <!-- File upload -->
           <label style="
             display:inline-flex;align-items:center;gap:8px;
             background:var(--bg3);border:1px solid var(--border2);
@@ -204,7 +212,6 @@ function openEdit(type) {
               style="display:none;" onchange="previewCertFile(this)">
           </label>
 
-          <!-- OR divider -->
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
             <div style="flex:1;height:1px;background:var(--border);"></div>
             <span style="font-size:11px;color:var(--muted);">or paste URL</span>
@@ -233,13 +240,12 @@ function openEdit(type) {
 function previewCertUrl(url) {
   const img         = document.getElementById('cert-preview-img');
   const placeholder = document.getElementById('cert-preview-placeholder');
-  // Clear file input so URL takes priority
   const fileInput   = document.getElementById('e-cfile');
   if (fileInput) fileInput.value = '';
 
   if (url) {
-    img.src             = url;
-    img.style.display   = 'block';
+    img.src                   = url;
+    img.style.display         = 'block';
     placeholder.style.display = 'none';
     img.onerror = () => {
       img.style.display         = 'none';
@@ -257,9 +263,7 @@ function previewCertFile(input) {
   if (!input.files || !input.files[0]) return;
   const reader = new FileReader();
   reader.onload = e => {
-    // Store the data URL in the URL input so saveModal can read it
-    const urlInput          = document.getElementById('e-cimg');
-    urlInput.value          = e.target.result;
+    document.getElementById('e-cimg').value = e.target.result;
     previewCertUrl(e.target.result);
   };
   reader.readAsDataURL(input.files[0]);
@@ -275,7 +279,8 @@ function saveModal() {
   const type = currentEdit;
 
   if (type === 'about') {
-    document.getElementById('about-bio').textContent = document.getElementById('e-abio').value;
+    document.getElementById('about-bio').textContent =
+      document.getElementById('e-abio').value;
 
   } else if (type === 'expertise') {
     const t = document.getElementById('e-etitle').value;
@@ -309,6 +314,7 @@ function saveModal() {
     const el = document.createElement('div');
     el.className = 'proj-card';
     el.innerHTML = `
+      <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
       <div class="proj-tag">${document.getElementById('e-ptag').value || 'Web App'}</div>
       <div class="proj-title">${t}</div>
       <div class="proj-desc">${document.getElementById('e-pdesc').value}</div>
@@ -328,18 +334,17 @@ function saveModal() {
     const card = document.createElement('div');
     card.className = 'cert-card';
     card.innerHTML = `
+      <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
       <div class="cert-img-wrap">
-        ${imgSrc
-          ? `<img src="${imgSrc}" alt="${n}"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />`
-          : ''}
+        ${imgSrc ? `<img src="${imgSrc}" alt="${n}"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />` : ''}
         <div class="cert-img-placeholder" style="${imgSrc ? 'display:none' : 'display:flex'}">🏅</div>
       </div>
       <div class="cert-body">
         <div class="cert-name">${n}</div>
         <div class="cert-issuer">${issuer}</div>
         ${year ? `<div class="cert-year-badge">${year}</div>` : ''}
-        ${desc ? `<div class="cert-desc">${desc}</div>` : ''}
+        ${desc ? `<div class="cert-desc">${desc}</div>`   : ''}
       </div>
     `;
     document.getElementById('cert-grid').appendChild(card);

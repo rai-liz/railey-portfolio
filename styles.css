@@ -968,3 +968,43 @@ footer {
   font-size: 11px;
   color: var(--muted);
 }
+
+
+.proj-card,
+.cert-card {
+  position: relative;
+}
+
+.delete-btn {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 26px;
+  height: 26px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  font-family: var(--font-body);
+  opacity: 0;
+  transition: opacity 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+  z-index: 2;
+}
+
+/* Show on card hover */
+.proj-card:hover .delete-btn,
+.cert-card:hover .delete-btn {
+  opacity: 1;
+}
+
+.delete-btn:hover {
+  background: rgba(239,68,68,0.15);
+  border-color: rgba(239,68,68,0.4);
+  color: #f87171;
+}

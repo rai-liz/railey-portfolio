@@ -143,6 +143,7 @@
           <button class="stab"        onclick="filterSkills('framework',this)">Frameworks</button>
           <button class="stab"        onclick="filterSkills('database',this)">Database</button>
           <button class="stab"        onclick="filterSkills('tools',this)">Tools</button>
+          <button class="stab"        onclick="filterSkills('ai',this)">AI Tools</button>
           <button class="stab"        onclick="filterSkills('soft',this)">Soft Skills</button>
         </div>
       </div>
@@ -168,7 +169,9 @@
       </div>
     </div>
     <div class="proj-grid reveal reveal-delay-3" id="proj-grid">
+
       <div class="proj-card">
+        <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
         <div class="proj-tag">Web App</div>
         <div class="proj-title">Project placeholder 1</div>
         <div class="proj-desc">Add your real project here — what it does, the problem it solves, and your role in building it.</div>
@@ -178,7 +181,9 @@
           <span class="tech-badge">PostgreSQL</span>
         </div>
       </div>
+
       <div class="proj-card">
+        <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
         <div class="proj-tag">Full Stack</div>
         <div class="proj-title">Project placeholder 2</div>
         <div class="proj-desc">Describe another project here. Include results like user count, performance gains, or client impact.</div>
@@ -188,7 +193,9 @@
           <span class="tech-badge">Tailwind</span>
         </div>
       </div>
+
       <div class="proj-card">
+        <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
         <div class="proj-tag">AI Integration</div>
         <div class="proj-title">Project placeholder 3</div>
         <div class="proj-desc">Showcase your AI API integration work — a great differentiator for modern dev roles.</div>
@@ -198,6 +205,7 @@
           <span class="tech-badge">Vercel</span>
         </div>
       </div>
+
     </div>
     <button class="add-btn" onclick="openEdit('project')">+ Add project</button>
   </section>
@@ -208,39 +216,33 @@
     <div class="section-title reveal reveal-delay-1">Certifications</div>
     <div class="cert-grid reveal reveal-delay-2" id="cert-grid">
 
-      <!-- Cert Card 1 — replace src with your image path or URL -->
       <div class="cert-card">
+        <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
         <div class="cert-img-wrap">
           <img src="" alt="Certification image"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-               id="cert-img-1" />
-          <div class="cert-img-placeholder" style="display:none;">🎓</div>
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="cert-img-placeholder" style="display:flex;">🎓</div>
         </div>
         <div class="cert-body">
           <div class="cert-name">Certification Name 1</div>
           <div class="cert-issuer">Issuing Organization</div>
           <div class="cert-year-badge">2024</div>
-          <div class="cert-desc">
-            Describe what this certification covers, the skills validated, and why it's relevant to your work as a developer.
-          </div>
+          <div class="cert-desc">Describe what this certification covers, the skills validated, and why it's relevant to your work as a developer.</div>
         </div>
       </div>
 
-      <!-- Cert Card 2 -->
       <div class="cert-card">
+        <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
         <div class="cert-img-wrap">
           <img src="" alt="Certification image"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-               id="cert-img-2" />
-          <div class="cert-img-placeholder" style="display:none;">🏅</div>
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="cert-img-placeholder" style="display:flex;">🏅</div>
         </div>
         <div class="cert-body">
           <div class="cert-name">Certification Name 2</div>
           <div class="cert-issuer">Issuing Organization</div>
           <div class="cert-year-badge">2023</div>
-          <div class="cert-desc">
-            Describe what this certification covers, the skills validated, and why it's relevant to your work as a developer.
-          </div>
+          <div class="cert-desc">Describe what this certification covers, the skills validated, and why it's relevant to your work as a developer.</div>
         </div>
       </div>
 
