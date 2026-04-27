@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Railey Balde — Full Stack Web Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-icon">R</div>
+      dev. railey
+    </a>
+    <div class="nav-links">
+      <a href="#expertise">Expertise</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certs">Certifications</a>
+      <a href="#about">About Me</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-eyebrow">Full Stack Web Developer &nbsp;·&nbsp; Philippines</div>
+    <h1>I'm <span class="name-accent">Railey</span></h1>
+    <p class="hero-sub">
+      A <span class="accent">Full-Stack Web Developer</span> who builds web apps
+      that are clean, scalable, and built with users in mind.
+    </p>
+    <p class="hero-desc">Learn more about my skills, projects, and professional journey.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View my work</a>
+      <a href="#about"    class="btn-ghost">About me</a>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee">
+      <span class="marquee-item">Next.js</span>
+      <span class="marquee-item">React.js</span>
+      <span class="marquee-item">Node.js</span>
+      <span class="marquee-item">PostgreSQL</span>
+      <span class="marquee-item">Tailwind CSS</span>
+      <span class="marquee-item">Prisma ORM</span>
+      <span class="marquee-item">TypeScript</span>
+      <span class="marquee-item">Vercel</span>
+      <span class="marquee-item">AI API Integration</span>
+      <span class="marquee-item">REST API</span>
+      <span class="marquee-item">Next.js</span>
+      <span class="marquee-item">React.js</span>
+      <span class="marquee-item">Node.js</span>
+      <span class="marquee-item">PostgreSQL</span>
+      <span class="marquee-item">Tailwind CSS</span>
+      <span class="marquee-item">Prisma ORM</span>
+      <span class="marquee-item">TypeScript</span>
+      <span class="marquee-item">Vercel</span>
+      <span class="marquee-item">AI API Integration</span>
+      <span class="marquee-item">REST API</span>
+    </div>
+  </div>
+
+  <!-- EXPERTISE -->
+  <section id="expertise" class="section">
+    <div class="section-eyebrow reveal">What I do</div>
+    <div class="section-title reveal reveal-delay-1">Areas of expertise</div>
+    <div class="expertise-grid reveal reveal-delay-2" id="exp-grid">
+      <div class="exp-card" onclick="toggleExp(this)" onmousemove="trackMouse(event,this)">
+        <span class="exp-arrow">▾</span>
+        <span class="exp-icon">🌐</span>
+        <div class="exp-title">Frontend Development</div>
+        <div class="exp-sub">Building interfaces</div>
+        <div class="exp-detail">Crafting pixel-perfect, responsive UIs using HTML, CSS, JavaScript, React, and Next.js with Tailwind CSS.</div>
+      </div>
+      <div class="exp-card" onclick="toggleExp(this)" onmousemove="trackMouse(event,this)">
+        <span class="exp-arrow">▾</span>
+        <span class="exp-icon">⚙️</span>
+        <div class="exp-title">Backend Development</div>
+        <div class="exp-sub">Server-side logic</div>
+        <div class="exp-detail">Building robust REST APIs and server-side logic using Node.js, PostgreSQL, and Prisma ORM.</div>
+      </div>
+      <div class="exp-card" onclick="toggleExp(this)" onmousemove="trackMouse(event,this)">
+        <span class="exp-arrow">▾</span>
+        <span class="exp-icon">🤖</span>
+        <div class="exp-title">AI-Powered Development</div>
+        <div class="exp-sub">Build smarter, ship faster</div>
+        <div class="exp-detail">Integrating AI APIs into web apps and leveraging AI tools throughout the development process to build side projects faster.</div>
+      </div>
+      <div class="exp-card" onclick="toggleExp(this)" onmousemove="trackMouse(event,this)">
+        <span class="exp-arrow">▾</span>
+        <span class="exp-icon">🚀</span>
+        <div class="exp-title">Deployment & DevOps</div>
+        <div class="exp-sub">Ship with confidence</div>
+        <div class="exp-detail">Deploying full-stack apps on Vercel with CI/CD pipelines and version control via Git & GitHub.</div>
+      </div>
+    </div>
+    <button class="add-btn" onclick="openEdit('expertise')">+ Add expertise</button>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="skills-layout">
+      <div class="reveal">
+        <div class="skills-pills-wrap" id="skills-pills"></div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="skills-right-title">
+          I build on a solid <span class="accent">tech stack</span>
+          and strong <span class="accent">interpersonal skills.</span>
+        </div>
+        <div class="skills-right-sub">From code to collaboration, these are the skills I use to solve problems and deliver value.</div>
+        <div class="skills-tabs">
+          <button class="stab active" onclick="filterSkills('all',this)">All</button>
+          <button class="stab"        onclick="filterSkills('coding',this)">Coding</button>
+          <button class="stab"        onclick="filterSkills('framework',this)">Frameworks</button>
+          <button class="stab"        onclick="filterSkills('database',this)">Database</button>
+          <button class="stab"        onclick="filterSkills('tools',this)">Tools</button>
+          <button class="stab"        onclick="filterSkills('ai',this)">AI Tools</button>
+          <button class="stab"        onclick="filterSkills('soft',this)">Soft Skills</button>
+        </div>
+      </div>
+    </div>
+    <button class="add-btn" onclick="openEdit('skill')">+ Add skill</button>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="section-eyebrow reveal">Portfolio</div>
+    <div class="section-title reveal reveal-delay-1">Featured projects</div>
+    <div class="ai-banner reveal reveal-delay-2">
+      <div class="ai-banner-icon">🤖</div>
+      <div>
+        <div class="ai-banner-title">AI-assisted development</div>
+        <div class="ai-banner-desc">I use AI tools throughout my workflow — from prototyping to writing and reviewing code — helping me ship side projects faster and more effectively.</div>
+        <div class="ai-chips">
+          <span class="ai-chip">Claude</span>
+          <span class="ai-chip">ChatGPT</span>
+          <span class="ai-chip">GitHub Copilot</span>
+          <span class="ai-chip">v0 / Cursor</span>
+        </div>
+      </div>
+    </div>
+    <div class="proj-grid reveal reveal-delay-3" id="proj-grid">
+      <div class="proj-card">
+        <div class="proj-tag">Web App</div>
+        <div class="proj-title">Project placeholder 1</div>
+        <div class="proj-desc">Add your real project here — what it does, the problem it solves, and your role in building it.</div>
+        <div class="proj-tech">
+          <span class="tech-badge">Next.js</span>
+          <span class="tech-badge">Node.js</span>
+          <span class="tech-badge">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-tag">Full Stack</div>
+        <div class="proj-title">Project placeholder 2</div>
+        <div class="proj-desc">Describe another project here. Include results like user count, performance gains, or client impact.</div>
+        <div class="proj-tech">
+          <span class="tech-badge">React</span>
+          <span class="tech-badge">Prisma</span>
+          <span class="tech-badge">Tailwind</span>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-tag">AI Integration</div>
+        <div class="proj-title">Project placeholder 3</div>
+        <div class="proj-desc">Showcase your AI API integration work — a great differentiator for modern dev roles.</div>
+        <div class="proj-tech">
+          <span class="tech-badge">Next.js</span>
+          <span class="tech-badge">AI API</span>
+          <span class="tech-badge">Vercel</span>
+        </div>
+      </div>
+    </div>
+    <button class="add-btn" onclick="openEdit('project')">+ Add project</button>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs" class="section">
+    <div class="section-eyebrow reveal">Credentials</div>
+    <div class="section-title reveal reveal-delay-1">Certifications</div>
+    <div class="cert-list reveal reveal-delay-2" id="cert-list">
+      <div class="cert-item">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-info">
+          <div class="cert-name">Certification placeholder 1</div>
+          <div class="cert-issuer">Issuing organization</div>
+        </div>
+        <div class="cert-year">2024</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-info">
+          <div class="cert-name">Certification placeholder 2</div>
+          <div class="cert-issuer">Issuing organization</div>
+        </div>
+        <div class="cert-year">2023</div>
+      </div>
+    </div>
+    <button class="add-btn" onclick="openEdit('cert')">+ Add certification</button>
+  </section>
+
+  <!-- ABOUT ME -->
+  <section id="about" class="section" style="border-bottom: none">
+    <div class="about-layout">
+      <div class="about-card reveal">
+        <div class="about-avatar">👨‍💻</div>
+        <div class="about-name">Railey Balde</div>
+        <div class="about-role-txt">Full Stack Web Developer</div>
+        <button class="about-dl" onclick="downloadResume()">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download CV
+        </button>
+      </div>
+      <div class="about-right reveal reveal-delay-2">
+        <h2>Hi, I'm <span class="accent">Railey</span><br>and here's a little <span class="accent">about me.</span></h2>
+        <p id="about-bio">
+          I'm Railey Balde, a full-stack web developer based in the Philippines who loves building clean,
+          scalable, and user-friendly digital experiences. I enjoy learning new technologies, experimenting
+          with ideas, and using AI tools to build smarter side projects. I value simplicity, efficiency,
+          and continuous growth in everything I do.
+        </p>
+        <button class="add-btn" onclick="openEdit('about')">Edit about me</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2025 Railey Balde. Built with care.</span>
+    <span>Full Stack Web Developer · Philippines</span>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <h3 id="modal-title">Edit</h3>
+      <div id="modal-body"></div>
+      <div class="modal-btns">
+        <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+        <button class="btn-save"   onclick="saveModal()">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
