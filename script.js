@@ -28,9 +28,7 @@ const SKILLS = [
   { name: 'GitHub',             cat: 'tools'     },
   { name: 'Vercel',             cat: 'tools'     },
   { name: 'VS Code',            cat: 'tools'     },
-  // AI Tools
-  { name: 'GitHub Copilot',     cat: 'ai'        },
-  { name: 'AI API Integration', cat: 'ai'        },
+
   // Soft Skills
   { name: 'Adaptability',       cat: 'soft'      },
   { name: 'Collaboration',      cat: 'soft'      },
