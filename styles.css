@@ -876,7 +876,7 @@ footer {
   animation: modalSlide 0.2s ease both;
 }
 
-.contact-dropdown.open { display: block; }
+.nav-contact-wrap:hover .contact-dropdown { display: block; }
 
 .contact-title {
   font-family: var(--font-display);
