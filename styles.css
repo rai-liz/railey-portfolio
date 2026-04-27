@@ -840,36 +840,65 @@ footer {
   footer            { flex-direction: column; gap: 8px; text-align: center; }
 }
 
-/* ── CONTACT ──────────────────────────────── */
-.contact-box {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2.5rem;
-  max-width: 540px;
+
+/* ── NAV CONTACT BUTTON & DROPDOWN ───────── */
+.nav-contact-wrap {
+  position: relative;
 }
+
+.nav-contact-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 20px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: none;
+  font-family: var(--font-body);
+  transition: background 0.2s;
+}
+
+.nav-contact-btn:hover { background: #1d4ed8; }
+
+.contact-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 16px;
+  padding: 1.75rem;
+  width: 340px;
+  z-index: 999;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  animation: modalSlide 0.2s ease both;
+}
+
+.contact-dropdown.open { display: block; }
 
 .contact-title {
   font-family: var(--font-display);
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--accent2);
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.5px;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.3px;
 }
 
 .contact-desc {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--muted2);
-  line-height: 1.7;
-  margin-bottom: 1.75rem;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
 }
 
 .contact-btns {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .contact-btn {
@@ -880,8 +909,8 @@ footer {
   border: 1px solid var(--border2);
   color: #fff;
   border-radius: 10px;
-  padding: 12px 22px;
-  font-size: 14px;
+  padding: 10px 18px;
+  font-size: 13px;
   font-weight: 500;
   text-decoration: none;
   font-family: var(--font-body);
@@ -896,6 +925,6 @@ footer {
 }
 
 .contact-hint {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--muted);
 }

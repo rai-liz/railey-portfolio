@@ -262,3 +262,16 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   renderPills('all');
 });
+
+/* ── CONTACT DROPDOWN ─────────────────────── */
+function toggleContact(e) {
+  e.stopPropagation();
+  document.getElementById('contact-dropdown').classList.toggle('open');
+}
+
+document.addEventListener('click', function(e) {
+  const dropdown = document.getElementById('contact-dropdown');
+  if (dropdown && !dropdown.contains(e.target)) {
+    dropdown.classList.remove('open');
+  }
+});
