@@ -147,7 +147,7 @@ nav {
   border-radius: 7px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   font-size: 14px;
   font-weight: 900;
   transition: transform 0.3s ease;
@@ -177,11 +177,11 @@ nav {
 
 /* ── HERO ─────────────────────────────────── */
 #hero {
-  padding: 8rem 4rem 3rem;
+  padding: 0 4rem 12rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   border-bottom: 1px solid var(--border);
   position: relative;
   overflow: hidden;
@@ -649,7 +649,7 @@ nav {
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   font-size: 17px;
   flex-shrink: 0;
 }
@@ -689,7 +689,7 @@ nav {
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   font-size: 46px;
   margin-bottom: 0.25rem;
   transition: transform 0.3s;
@@ -713,7 +713,7 @@ nav {
   margin-top: 0.5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 6px;
   font-family: var(--font-body);
   transition: background 0.2s, transform 0.2s;
@@ -742,7 +742,7 @@ nav {
   backdrop-filter: blur(8px);
   z-index: 200;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .modal-overlay.show { display: flex; animation: fadeIn 0.2s ease; }
@@ -781,7 +781,7 @@ nav {
 .modal textarea:focus,
 .modal select:focus { border-color: var(--accent); }
 
-.modal-btns { display: flex; gap: 8px; justify-content: center; margin-top: 4px; }
+.modal-btns { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
 
 .modal-btns button {
   padding: 9px 20px;
