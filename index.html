@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body>
 
@@ -253,32 +253,91 @@
     <div class="cert-grid reveal reveal-delay-2" id="cert-grid">
 
       <div class="cert-card">
-        <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
-        <div class="cert-img-wrap">
-          <img src="" alt="Certification image"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="cert-img-placeholder" style="display:flex;">🎓</div>
-        </div>
+        <button class="cert-img-wrap cert-open" onclick="openCertLightbox(this)" data-src="images/certs/it-specialist-python.jpg" data-alt="Information Technology Specialist – Python (Certiport / Pearson)" title="View certificate">
+          <img src="images/certs/it-specialist-python.jpg" alt="IT Specialist Python certificate" loading="lazy" />
+        </button>
         <div class="cert-body">
-          <div class="cert-name">Certification Name 1</div>
-          <div class="cert-issuer">Issuing Organization</div>
-          <div class="cert-year-badge">2024</div>
-          <div class="cert-desc">Describe what this certification covers, the skills validated, and why it's relevant to your work as a developer.</div>
+          <div class="cert-name">Information Technology Specialist – Python</div>
+          <div class="cert-issuer">Certiport · Pearson</div>
+          <div class="cert-year-badge">Oct 2026</div>
+          <div class="cert-desc">Industry certification validating Python programming skills: data types, control flow, functions, file handling, error handling, and modules.</div>
+          <div class="cert-verify">Credential ID: rbpD-uS7B · <a href="https://verify.certiport.com" target="_blank" rel="noopener">Verify ↗</a></div>
         </div>
       </div>
 
       <div class="cert-card">
-        <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
-        <div class="cert-img-wrap">
-          <img src="" alt="Certification image"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <div class="cert-img-placeholder" style="display:flex;">🏅</div>
-        </div>
+        <button class="cert-img-wrap cert-open" onclick="openCertLightbox(this)" data-src="images/certs/ef-set.jpg" data-alt="EF SET English Certificate – C1 Advanced (68/100)" title="View certificate">
+          <img src="images/certs/ef-set.jpg" alt="EF SET English certificate" loading="lazy" style="object-position: top;" />
+        </button>
         <div class="cert-body">
-          <div class="cert-name">Certification Name 2</div>
-          <div class="cert-issuer">Issuing Organization</div>
-          <div class="cert-year-badge">2023</div>
-          <div class="cert-desc">Describe what this certification covers, the skills validated, and why it's relevant to your work as a developer.</div>
+          <div class="cert-name">EF SET English Certificate – C1 Advanced</div>
+          <div class="cert-issuer">EF Standard English Test</div>
+          <div class="cert-year-badge">Apr 2026</div>
+          <div class="cert-desc">Scored 68/100, C1 Advanced on the CEFR scale. Reading at C2 Proficient and Listening at C1 Advanced.</div>
+          <div class="cert-verify"><a href="https://cert.efset.org/tU9FE5" target="_blank" rel="noopener">Verify ↗</a></div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <button class="cert-img-wrap cert-open" onclick="openCertLightbox(this)" data-src="images/certs/freecodecamp-rwd.jpg" data-alt="Responsive Web Design – freeCodeCamp" title="View certificate">
+          <img src="images/certs/freecodecamp-rwd.jpg" alt="freeCodeCamp Responsive Web Design certificate" loading="lazy" />
+        </button>
+        <div class="cert-body">
+          <div class="cert-name">Responsive Web Design</div>
+          <div class="cert-issuer">freeCodeCamp</div>
+          <div class="cert-year-badge">Apr 2026</div>
+          <div class="cert-desc">Developer certification of about 300 hours covering semantic HTML, CSS, Flexbox, Grid, and responsive layouts, built through hands-on projects.</div>
+          <div class="cert-verify"><a href="https://freecodecamp.org/certification/fccf24ce889-add8-4ad0-928d-28e0726dec66/responsive-web-design-v9" target="_blank" rel="noopener">Verify ↗</a></div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <button class="cert-img-wrap cert-open" onclick="openCertLightbox(this)" data-src="images/certs/salesforce-internship.jpg" data-alt="Salesforce Supported Virtual Internship Program 2025 – SmartBridge" title="View certificate">
+          <img src="images/certs/salesforce-internship.jpg" alt="Salesforce virtual internship certificate" loading="lazy" />
+        </button>
+        <div class="cert-body">
+          <div class="cert-name">Salesforce Supported Virtual Internship 2025</div>
+          <div class="cert-issuer">SmartBridge · Salesforce Partner</div>
+          <div class="cert-year-badge">Apr 2026</div>
+          <div class="cert-desc">8-week virtual internship (Sep–Nov 2025) covering Salesforce fundamentals, data and security modeling, automation, Apex, Visualforce, Lightning Web Components, and Agentforce.</div>
+          <div class="cert-verify">Certificate ID: SWSFVIPAD2026-0924</div>
+        </div>
+      </div>
+
+
+      <div class="cert-card">
+        <button class="cert-img-wrap cert-open" onclick="openCertLightbox(this)" data-src="images/certs/agentblazer.jpg" data-alt="Agentblazer Champion Workshop – Salesforce / SmartBridge" title="View certificate">
+          <img src="images/certs/agentblazer.jpg" alt="Agentblazer Champion Workshop certificate" loading="lazy" />
+        </button>
+        <div class="cert-body">
+          <div class="cert-name">Agentblazer Champion Workshop</div>
+          <div class="cert-issuer">Salesforce · SmartBridge</div>
+          <div class="cert-year-badge">Sep 2025</div>
+          <div class="cert-desc">Completed the Salesforce Agentblazer Champion Workshop on building AI agents with Agentforce.</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <button class="cert-img-wrap cert-open" onclick="openCertLightbox(this)" data-src="images/certs/codecraft.jpg" data-alt="CodeCraft: Mastering Essential Tools for Modern Software Development – BulSU CICT" title="View certificate">
+          <img src="images/certs/codecraft.jpg" alt="CodeCraft training certificate" loading="lazy" />
+        </button>
+        <div class="cert-body">
+          <div class="cert-name">CodeCraft: Essential Tools for Modern Software Development</div>
+          <div class="cert-issuer">Bulacan State University · CICT SWITS</div>
+          <div class="cert-year-badge">Dec 2025</div>
+          <div class="cert-desc">Completed a 3-day hands-on training program on the essential tools of modern software development.</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <button class="cert-img-wrap cert-open" onclick="openCertLightbox(this)" data-src="images/certs/vrtsystems-iot.jpg" data-alt="Internet of Smart Things seminar – VRTSYSTEMS Technologies" title="View certificate">
+          <img src="images/certs/vrtsystems-iot.jpg" alt="VRTSYSTEMS IoT seminar certificate" loading="lazy" />
+        </button>
+        <div class="cert-body">
+          <div class="cert-name">Internet of Smart Things: Basic Setup to Real-Life Applications</div>
+          <div class="cert-issuer">VRTSYSTEMS Technologies · Filament Labs</div>
+          <div class="cert-year-badge">Mar 2026</div>
+          <div class="cert-desc">Participated in a seminar on setting up IoT devices and applying them to real-world use cases.</div>
         </div>
       </div>
 
@@ -346,6 +405,6 @@
 
   <div class="toast" id="toast"></div>
 
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>

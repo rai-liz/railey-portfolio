@@ -119,14 +119,26 @@ function showShot(thumb) {
 let lbShots = [];
 let lbIndex = 0;
 
-function openLightbox(mainBtn) {
-  const card   = mainBtn.closest('.proj-card');
-  const thumbs = [...card.querySelectorAll('.proj-thumb')];
-  lbShots = thumbs.map(t => ({ src: t.dataset.src, alt: t.dataset.alt }));
-  lbIndex = Math.max(0, thumbs.findIndex(t => t.classList.contains('active')));
+function showLightbox(shots, index) {
+  lbShots = shots;
+  lbIndex = index;
   renderLightbox();
   document.getElementById('lightbox').classList.add('show');
   document.body.style.overflow = 'hidden';
+}
+
+// Project gallery: arrows move through that project's screenshots
+function openLightbox(mainBtn) {
+  const thumbs = [...mainBtn.closest('.proj-card').querySelectorAll('.proj-thumb')];
+  const shots  = thumbs.map(t => ({ src: t.dataset.src, alt: t.dataset.alt }));
+  showLightbox(shots, Math.max(0, thumbs.findIndex(t => t.classList.contains('active'))));
+}
+
+// Certificates: arrows move through all certificates
+function openCertLightbox(btn) {
+  const all   = [...document.querySelectorAll('#cert-grid .cert-open')];
+  const shots = all.map(b => ({ src: b.dataset.src, alt: b.dataset.alt }));
+  showLightbox(shots, all.indexOf(btn));
 }
 
 function renderLightbox() {
@@ -168,8 +180,13 @@ function showToast(msg) {
 
 /* ── DOWNLOAD RESUME ──────────────────────── */
 function downloadResume() {
-  // window.open('resume.pdf');
-  showToast('Resume coming soon! 🚀');
+  const link = document.createElement('a');
+  link.href = 'Railey_Balde_CV.pdf';
+  link.download = 'Railey_Balde_CV.pdf';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  showToast('Downloading CV… 📄');
 }
 
 /* ── DELETE HELPERS ───────────────────────── */
