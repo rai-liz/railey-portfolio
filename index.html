@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
 
@@ -214,13 +214,31 @@
 
       <div class="proj-card">
         <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
-        <div class="proj-tag">AI Integration</div>
-        <div class="proj-title">Project placeholder 3</div>
-        <div class="proj-desc">Showcase your AI API integration work — a great differentiator for modern dev roles.</div>
+        <button class="proj-img proj-img-gallery" onclick="openLightbox(this)" title="View full size">
+          <img src="images/legacy-monitor.jpg" alt="Legacy Branch Monitor home page" width="1200" height="750" loading="lazy" style="max-width:100%;height:auto;" />
+          <span class="proj-zoom">⤢ View full size</span>
+        </button>
+        <div class="proj-thumbs">
+          <button class="proj-thumb active" onclick="showShot(this)" data-src="images/legacy-monitor.jpg" data-alt="Legacy Branch Monitor home page"><img src="images/legacy-monitor.jpg" alt="Home" loading="lazy" /></button>
+          <button class="proj-thumb" onclick="showShot(this)" data-src="images/legacy-dashboard.jpg" data-alt="Sales dashboard with daily goal and coffee vs barbershop split"><img src="images/legacy-dashboard.jpg" alt="Dashboard" loading="lazy" /></button>
+          <button class="proj-thumb" onclick="showShot(this)" data-src="images/legacy-sales-trend.jpg" data-alt="Sales trend chart: gross vs net sales per day"><img src="images/legacy-sales-trend.jpg" alt="Sales trend" loading="lazy" /></button>
+          <button class="proj-thumb" onclick="showShot(this)" data-src="images/legacy-sales-log.jpg" data-alt="Daily sales log with date filter and Excel export"><img src="images/legacy-sales-log.jpg" alt="Sales log" loading="lazy" /></button>
+          <button class="proj-thumb" onclick="showShot(this)" data-src="images/legacy-add-sales.jpg" data-alt="Add today's sales form with coffee, barbershop, and expenses"><img src="images/legacy-add-sales.jpg" alt="Add sales" loading="lazy" /></button>
+          <button class="proj-thumb" onclick="showShot(this)" data-src="images/legacy-top-sellers.jpg" data-alt="Top sellers ranking for coffee and barbershop"><img src="images/legacy-top-sellers.jpg" alt="Top sellers" loading="lazy" /></button>
+          <button class="proj-thumb" onclick="showShot(this)" data-src="images/legacy-remittances.jpg" data-alt="Remittances: cash handed in vs logged sales"><img src="images/legacy-remittances.jpg" alt="Remittances" loading="lazy" /></button>
+          <button class="proj-thumb" onclick="showShot(this)" data-src="images/legacy-attendance.jpg" data-alt="Staff attendance tracker (staff names blurred for privacy)"><img src="images/legacy-attendance.jpg" alt="Attendance" loading="lazy" /></button>
+          <button class="proj-thumb" onclick="showShot(this)" data-src="images/legacy-dictionary.jpg" data-alt="Dictionary of dashboard terms in plain language"><img src="images/legacy-dictionary.jpg" alt="Dictionary" loading="lazy" /></button>
+        </div>
+        <div class="proj-tag">Full Stack · Solo Project</div>
+        <div class="proj-title">Legacy Branch Monitor</div>
+        <div class="proj-desc">A daily operations dashboard for Legacy Coffee &amp; Barbershop's SJDM branch. It tracks coffee sales and barbershop cuts side by side in one ledger, along with cash remittances and staff attendance. Staff log entries themselves, and the dashboard shows sales trends, top sellers, and progress toward daily goals. Replaced the branch's Excel spreadsheet, with the old records imported in. Designed and built on my own.</div>
         <div class="proj-tech">
-          <span class="tech-badge">Next.js</span>
-          <span class="tech-badge">AI API</span>
-          <span class="tech-badge">Vercel</span>
+          <span class="tech-badge">React</span>
+          <span class="tech-badge">Node.js</span>
+          <span class="tech-badge">Express</span>
+          <span class="tech-badge">PostgreSQL</span>
+          <span class="tech-badge">Tailwind CSS</span>
+          <span class="tech-badge">Recharts</span>
         </div>
       </div>
 
@@ -315,8 +333,19 @@
     </div>
   </div>
 
+  <!-- SCREENSHOT LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lb-btn lb-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+    <button class="lb-btn lb-prev" onclick="stepLightbox(-1, event)" aria-label="Previous">‹</button>
+    <figure class="lb-figure">
+      <img id="lb-img" src="" alt="" />
+      <figcaption id="lb-caption"></figcaption>
+    </figure>
+    <button class="lb-btn lb-next" onclick="stepLightbox(1, event)" aria-label="Next">›</button>
+  </div>
+
   <div class="toast" id="toast"></div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

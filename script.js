@@ -105,6 +105,59 @@ function filterSkills(cat, btn) {
   renderPills(cat);
 }
 
+/* ── PROJECT SCREENSHOT GALLERY ───────────── */
+function showShot(thumb) {
+  const card = thumb.closest('.proj-card');
+  const main = card.querySelector('.proj-img-gallery img');
+  main.src = thumb.dataset.src;
+  main.alt = thumb.dataset.alt;
+  card.querySelectorAll('.proj-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+}
+
+/* ── LIGHTBOX (full-size screenshots) ─────── */
+let lbShots = [];
+let lbIndex = 0;
+
+function openLightbox(mainBtn) {
+  const card   = mainBtn.closest('.proj-card');
+  const thumbs = [...card.querySelectorAll('.proj-thumb')];
+  lbShots = thumbs.map(t => ({ src: t.dataset.src, alt: t.dataset.alt }));
+  lbIndex = Math.max(0, thumbs.findIndex(t => t.classList.contains('active')));
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function renderLightbox() {
+  const shot = lbShots[lbIndex];
+  const img  = document.getElementById('lb-img');
+  img.src = shot.src;
+  img.alt = shot.alt;
+  document.getElementById('lb-caption').textContent =
+    `${shot.alt}  ·  ${lbIndex + 1} / ${lbShots.length}`;
+}
+
+function stepLightbox(dir, e) {
+  if (e) e.stopPropagation();
+  lbIndex = (lbIndex + dir + lbShots.length) % lbShots.length;
+  renderLightbox();
+}
+
+function closeLightbox(e) {
+  // Clicking the image itself shouldn't close it, only the dark background or ✕
+  if (e && e.target.closest('.lb-figure')) return;
+  document.getElementById('lightbox').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('show')) return;
+  if (e.key === 'Escape')     closeLightbox();
+  if (e.key === 'ArrowLeft')  stepLightbox(-1);
+  if (e.key === 'ArrowRight') stepLightbox(1);
+});
+
 /* ── TOAST ────────────────────────────────── */
 function showToast(msg) {
   const t = document.getElementById('toast');
