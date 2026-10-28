@@ -11,13 +11,13 @@ const SKILLS = [
   { name: 'TypeScript',         cat: 'coding'    },
   { name: 'PHP',                cat: 'coding'    },
   { name: 'Java',               cat: 'coding'    },
+  { name: 'Python',             cat: 'coding'    },
+
   // Frameworks
   { name: 'React.js',           cat: 'framework' },
   { name: 'Next.js',            cat: 'framework' },
   { name: 'Node.js',            cat: 'framework' },
   { name: 'Tailwind CSS',       cat: 'framework' },
-  { name: 'Laravel',            cat: 'framework' },
-  { name: 'Bootstrap',          cat: 'framework' },
   // Database
   { name: 'PostgreSQL',         cat: 'database'  },
   { name: 'MySQL',              cat: 'database'  },

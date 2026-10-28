@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=2" />
 </head>
 <body>
 
@@ -171,25 +171,44 @@
 
       <div class="proj-card">
         <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
-        <div class="proj-tag">Web App</div>
-        <div class="proj-title">Project placeholder 1</div>
-        <div class="proj-desc">Add your real project here — what it does, the problem it solves, and your role in building it.</div>
+        <a href="https://foundnest.vercel.app" target="_blank" rel="noopener" class="proj-img">
+          <img src="images/foundnest.jpg" alt="FoundNest homepage" width="1200" height="750" loading="lazy" style="max-width:100%;height:auto;" />
+        </a>
+        <div class="proj-tag">Capstone · Web &amp; Android</div>
+        <div class="proj-title">FoundNest</div>
+        <div class="proj-desc">A cross-platform lost and found system for Bulacan State University that replaces manual logbooks with one central platform. Students report lost items and get notified when a found item matches, using AI image and text matching. Admins list found items faster with AI-suggested details, and students can register belongings with QR tags and find the nearest lost and found center on a map. I worked on both frontend and the backend web developer as part of a 5-member team.</div>
         <div class="proj-tech">
-          <span class="tech-badge">Next.js</span>
+          <span class="tech-badge">React</span>
           <span class="tech-badge">Node.js</span>
+          <span class="tech-badge">Express</span>
           <span class="tech-badge">PostgreSQL</span>
+          <span class="tech-badge">Tailwind CSS</span>
+          <span class="tech-badge">Leaflet</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://foundnest.vercel.app" target="_blank" rel="noopener" class="proj-link">Live demo ↗</a>
+          <a href="https://github.com/FoundNest-WebDevelopement/FoundNest-Frontend" target="_blank" rel="noopener" class="proj-link">GitHub ↗</a>
         </div>
       </div>
 
       <div class="proj-card">
         <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
-        <div class="proj-tag">Full Stack</div>
-        <div class="proj-title">Project placeholder 2</div>
-        <div class="proj-desc">Describe another project here. Include results like user count, performance gains, or client impact.</div>
+        <a href="https://eli-works-inventory.vercel.app" target="_blank" rel="noopener" class="proj-img">
+          <img src="images/eli-works-inventory.jpg" alt="Eli Works Inventory login page" width="1200" height="750" loading="lazy" style="max-width:100%;height:auto;" />
+        </a>
+        <div class="proj-tag">Full Stack · Solo Project</div>
+        <div class="proj-title">Eli Works Inventory</div>
+        <div class="proj-desc">An inventory and sales system for a motorcycle parts shop. It tracks stock in real time, records sales and restocks, and warns when a part runs low, with a separate low-stock threshold for each item. Admins get a weekly sales chart, Excel export by period, and a full activity log, while staff accounts see their own sales for the day. Works on mobile with a bottom navigation bar. Designed and built on my own.</div>
         <div class="proj-tech">
-          <span class="tech-badge">React</span>
-          <span class="tech-badge">Prisma</span>
-          <span class="tech-badge">Tailwind</span>
+          <span class="tech-badge">Next.js</span>
+          <span class="tech-badge">TypeScript</span>
+          <span class="tech-badge">Prisma ORM</span>
+          <span class="tech-badge">PostgreSQL</span>
+          <span class="tech-badge">Tailwind CSS</span>
+          <span class="tech-badge">Recharts</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://eli-works-inventory.vercel.app" target="_blank" rel="noopener" class="proj-link">Live demo ↗</a>
         </div>
       </div>
 
