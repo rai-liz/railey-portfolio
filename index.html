@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="stylesheet" href="styles.css?v=10" />
 </head>
 <body>
 
@@ -130,7 +130,6 @@
         <div class="exp-detail">Deploying full-stack apps on Vercel with CI/CD pipelines and version control via Git & GitHub.</div>
       </div>
     </div>
-    <button class="add-btn" onclick="openEdit('expertise')">+ Add expertise</button>
   </section>
 
   <!-- SKILLS -->
@@ -155,7 +154,6 @@
         </div>
       </div>
     </div>
-    <button class="add-btn" onclick="openEdit('skill')">+ Add skill</button>
   </section>
 
   <!-- PROJECTS -->
@@ -178,7 +176,6 @@
     <div class="proj-grid reveal reveal-delay-3" id="proj-grid">
 
       <div class="proj-card">
-        <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
         <a href="https://foundnest.vercel.app" target="_blank" rel="noopener" class="proj-img">
           <img src="images/foundnest.jpg" alt="FoundNest homepage" width="1200" height="750" loading="lazy" style="max-width:100%;height:auto;" />
         </a>
@@ -200,7 +197,6 @@
       </div>
 
       <div class="proj-card">
-        <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
         <a href="https://eli-works-inventory.vercel.app" target="_blank" rel="noopener" class="proj-img">
           <img src="images/eli-works-inventory.jpg" alt="Eli Works Inventory login page" width="1200" height="750" loading="lazy" style="max-width:100%;height:auto;" />
         </a>
@@ -221,7 +217,6 @@
       </div>
 
       <div class="proj-card">
-        <button class="delete-btn" onclick="deleteCard(this)" title="Delete">✕</button>
         <button class="proj-img proj-img-gallery" onclick="openLightbox(this)" title="View full size">
           <img src="images/legacy-monitor.jpg" alt="Legacy Branch Monitor home page" width="1200" height="750" loading="lazy" style="max-width:100%;height:auto;" />
           <span class="proj-zoom">⤢ View full size</span>
@@ -251,7 +246,6 @@
       </div>
 
     </div>
-    <button class="add-btn" onclick="openEdit('project')">+ Add project</button>
   </section>
 
   <!-- CERTIFICATIONS -->
@@ -350,14 +344,13 @@
       </div>
 
     </div>
-    <button class="add-btn" onclick="openEdit('cert')">+ Add certification</button>
   </section>
 
   <!-- ABOUT ME -->
   <section id="about" class="section" style="border-bottom: none">
     <div class="about-layout">
       <div class="about-card reveal">
-        <div class="about-avatar">👨‍💻</div>
+        <div class="about-avatar"><img src="images/railey.jpg" alt="Railey Balde" /></div>
         <div class="about-name">Railey Balde</div>
         <div class="about-role-txt">Full Stack Web Developer</div>
         <button class="about-dl" onclick="downloadResume()">
@@ -377,28 +370,15 @@
           with ideas, and using AI tools to build smarter side projects. I value simplicity, efficiency,
           and continuous growth in everything I do.
         </p>
-        <button class="add-btn" onclick="openEdit('about')">Edit about me</button>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <span>© 2025 Railey Balde. Built with care.</span>
+    <span>© <span id="year">2026</span> Railey Balde. Built with care.</span>
     <span>Full Stack Web Developer · Philippines</span>
   </footer>
-
-  <!-- MODAL -->
-  <div class="modal-overlay" id="modal" onclick="closeModal(event)">
-    <div class="modal" onclick="event.stopPropagation()">
-      <h3 id="modal-title">Edit</h3>
-      <div id="modal-body"></div>
-      <div class="modal-btns">
-        <button class="btn-cancel" onclick="closeModal()">Cancel</button>
-        <button class="btn-save"   onclick="saveModal()">Save</button>
-      </div>
-    </div>
-  </div>
 
   <!-- SCREENSHOT LIGHTBOX -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
@@ -413,6 +393,6 @@
 
   <div class="toast" id="toast"></div>
 
-  <script src="script.js?v=9"></script>
+  <script src="script.js?v=10"></script>
 </body>
 </html>
