@@ -431,6 +431,34 @@ document.addEventListener('DOMContentLoaded', () => {
   renderPills('all');
 });
 
+/* ── COPY EMAIL ───────────────────────────── */
+function copyEmail(btn) {
+  const email = 'railey.balde@gmail.com';
+  const done = () => {
+    btn.textContent = 'Copied ✓';
+    btn.classList.add('copied');
+    showToast('Email copied ✓');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(email).then(done).catch(() => fallbackCopy(email, done));
+  } else {
+    fallbackCopy(email, done);
+  }
+}
+
+// For older browsers or non-https pages where the Clipboard API isn't available
+function fallbackCopy(text, done) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); done(); } catch { showToast('Copy failed — select the email instead'); }
+  ta.remove();
+}
+
 /* ── CONTACT DROPDOWN ─────────────────────── */
 function toggleContact(e) {
   e.stopPropagation();

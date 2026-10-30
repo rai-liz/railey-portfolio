@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=9" />
 </head>
 <body>
 
@@ -32,17 +32,25 @@
       <div class="contact-dropdown" id="contact-dropdown">
         <h3 class="contact-title">Get In Touch</h3>
         <p class="contact-desc">Have questions, opportunities, or just want to say hi? Feel free to reach out — I'd be glad to hear from you.</p>
+        <div class="contact-email">
+          <span class="contact-email-addr">railey.balde@gmail.com</span>
+          <button class="contact-copy" onclick="copyEmail(this)">Copy</button>
+        </div>
         <div class="contact-btns">
-          <a href="mailto:railey.balde@gmail.com" class="contact-btn">
+          <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=railey.balde@gmail.com" target="_blank" rel="noopener" class="contact-btn">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
-            Email
+            Gmail
+          </a>
+          <a href="mailto:railey.balde@gmail.com" class="contact-btn">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            Email app
           </a>
           <a href="https://www.linkedin.com/in/railey-lizarondo-balde-92376a355/" target="_blank" class="contact-btn">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
             LinkedIn
           </a>
         </div>
-        <p class="contact-hint">Click a button above to send an email or visit my LinkedIn.</p>
+        <p class="contact-hint">Copy my email, write to me in Gmail or your email app, or visit my LinkedIn.</p>
       </div>
     </div>
   </nav>
@@ -405,6 +413,6 @@
 
   <div class="toast" id="toast"></div>
 
-  <script src="script.js?v=8"></script>
+  <script src="script.js?v=9"></script>
 </body>
 </html>

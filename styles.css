@@ -1128,6 +1128,42 @@ footer {
   color: var(--muted);
 }
 
+.contact-email {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 8px 8px 8px 14px;
+  margin-bottom: 10px;
+}
+
+.contact-email-addr {
+  font-size: 13px;
+  color: #fff;
+  font-weight: 500;
+  user-select: all;
+  overflow-wrap: anywhere;
+}
+
+.contact-copy {
+  flex-shrink: 0;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  border-radius: 7px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: none;
+  transition: background 0.2s;
+}
+.contact-copy:hover { background: var(--accent2); }
+.contact-copy.copied { background: #16a34a; }
+
 
 .proj-card,
 .cert-card {
